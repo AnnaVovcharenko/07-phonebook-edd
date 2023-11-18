@@ -1,6 +1,6 @@
 import { ContactItem } from '../ContactItem/ContactItem';
 import { ListUl, ListDiv } from './ContactList.styled';
-import {  useSelector, useDispatch } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import Loading  from "../Loading/Loading";
 import { Error } from "../EMesseage/EMesseage";
 // import { getContacts} from "../../redux/selectors";
