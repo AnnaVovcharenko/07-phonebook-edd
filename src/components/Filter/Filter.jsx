@@ -1,11 +1,11 @@
 import { Div, Input } from './Filter.styled';
-import { getFilter } from '../../redux/selectors';
+import { selectFilter } from '../../redux/selectors';
 import { changeFilter } from '../../redux/filterSlice';
 import { useSelector, useDispatch } from 'react-redux';
 // import { nanoid } from 'nanoid';
 
 function Filter() {
-  const filter = useSelector(getFilter);
+  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
   // const filterInputId = nanoid();
   const onChange = event => {

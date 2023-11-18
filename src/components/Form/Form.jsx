@@ -10,8 +10,8 @@ import {
   ButtonForm,
   ErrorMsg,
 } from './Form.styled';
-import { addContact } from '../../redux/contactsSilce';
-import { getContacts } from '../../redux/selectors';
+import { addContact } from '../../redux/operation';
+import { selectContacts } from '../../redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
 import { ToastContainer, toast } from 'react-toastify';
@@ -29,13 +29,13 @@ const formSchema = Yup.object().shape({
 
 const FormContact = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
-  const handleSubmit = ({ name, number }, { resetForm }) => {
+  const handleSubmit = ({ name, phone }, { resetForm }) => {
     const finalContact = {
       id: nanoid(),
       name: name,
-      number: number,
+      phone: phone,
     };
 
     const identContactName = contacts.find(contact => contact.name === name);
@@ -52,7 +52,7 @@ const FormContact = () => {
       <Formik
         initialValues={{
           name: '',
-          number: '',
+          phone: '',
         }}
         validationSchema={formSchema}
         onSubmit={handleSubmit}
@@ -65,9 +65,9 @@ const FormContact = () => {
           </InputContainer>
 
           <InputContainer>
-            <Label htmlFor="number">Number</Label>
-            <MyField type="tel" name="number" placeholder="" />
-            <ErrorMsg name="number" component="div" />
+            <Label htmlFor="phone">Number</Label>
+            <MyField type="tel" name="phone" placeholder="" />
+            <ErrorMsg name="phone" component="div" />
           </InputContainer>
           <ButtonForm type="submit">Add contacu</ButtonForm>
         </MyForm>

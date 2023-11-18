@@ -1,4 +1,4 @@
-import { getContacts } from '../redux/selectors';
+import { selectContacts } from '../redux/selectors';
 import { useSelector } from 'react-redux';
 
 import FormContact from './Form/Form';
@@ -7,7 +7,7 @@ import Filter from './Filter/Filter';
 import Section from './Section/Section';
 
 export const App = () => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   return (
     <Section>
       <h2>Phonebook</h2>

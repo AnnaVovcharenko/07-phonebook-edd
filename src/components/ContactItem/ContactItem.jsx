@@ -1,5 +1,5 @@
 import React from 'react';
-import { delContact } from '../../redux/contactsSilce';
+import { deleteContact } from '../../redux/operation';
 import { useDispatch } from 'react-redux';
 import {
   ItemEl,
@@ -12,13 +12,14 @@ import {
 export const ContactItem = ({contact}) => {
   
   const dispatch = useDispatch();
+  const { name, phone, id } = contact;
   return (
     <ItemEl>
       <ContactData>
-        <ContactName>{contact.name}</ContactName>
-        <ContactNumber>{contact.number}</ContactNumber>
+        <ContactName>{name}</ContactName>
+        <ContactNumber>{phone}</ContactNumber>
       </ContactData>
-      <ContactDelete type="button" onClick={() => dispatch(delContact(contact.id))}>
+      <ContactDelete type="button" onClick={() => dispatch(deleteContact(id))}>
         &times;
       </ContactDelete>
     </ItemEl>
