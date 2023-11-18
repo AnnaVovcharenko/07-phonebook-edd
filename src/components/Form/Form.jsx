@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -37,7 +36,7 @@ const FormContact = () => {
       name: name,
       phone: phone,
     };
-
+  
     const identContactName = contacts.find(contact => contact.name === name);
 
     if (identContactName) {
